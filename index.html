@@ -1,12 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="main.js"></script>
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/366e86972c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+    <title>todo-list</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <header data-header>
+        <h1 class="header">taski</h1>
+        <div class="current-list-header-container">
+            <h2 class="current-list-name">Wes</h2>
+            <fieldset class="sort-fieldset">
+                <label>Sort by:</label>
+                <select class="sort-drop-down">
+                    <option value="priority">Priority</option>
+                    <option value="2">Deadline</option>
+                    <option value="3">Date Created</option>
+                    <option value="4">A-Z</option>
+                </select>
+            </fieldset>
+        </div>
+    </header>
+    <div class="side-nav" data-side-nav>
+        <i class="fas fa-bars slide-btn" data-slide-button></i>
+        <div class="lists-container" data-all-lists-container>
+            <h2>My Lists</h2>
+            <ul class="all-lists" data-all-lists>
+                <li class="active-list">wes</li>
+                <li>veronica list</li>
+                <li>this list</li>
+            </ul>
+            <form action="">
+                <input class="new-list-input" type="text">
+                <i class="fas fa-plus new-list-btn"></i>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="main-container-wrapper" data-main-div-wrapper>
+        <div class="main-container">
+            <i class="fas fa-plus new-task-btn" data-new-task-btn></i>
+
+            
+            <div class="todo-card-container">
+                <h3 class="todo-title">Take dog for walk</h3>
+                <div class="todo-items-container">
+                    <p class="todo-notes">Must take dog for a walk round the block</p>
+                </div>
+                <p class="due-time">22 hrs remaining</p>
+                <div class="btn-container">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+            <div class="todo-card-container">
+                <h3 class="todo-title">Take dog for walk</h3>
+                <div class="todo-items-container">
+                    <p class="todo-notes">Must take dog for a walk round the block</p>
+                </div>
+                <p class="due-time">22 hrs remaining</p>
+                <div class="btn-container">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+            <div class="todo-card-container">
+                <h3 class="todo-title">Take dog for walk</h3>
+                <div class="todo-items-container">
+                    <p class="todo-notes">Must take dog for a walk round the block</p>
+                </div>
+                <p class="due-time">22 hrs remaining</p>
+                <div class="btn-container">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+            <div class="todo-card-container">
+                <h3 class="todo-title">Take dog for walk</h3>
+                <div class="todo-items-container">
+                    <p class="todo-notes">Must take dog for a walk round the block</p>
+                </div>
+                <p class="due-time">22 hrs remaining</p>
+                <div class="btn-container">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+
+            <div class="todo-card-container">
+                <h3 class="todo-title">Take dog for walk</h3>
+                <div class="todo-items-container">
+                    <p class="todo-notes">Must take dog for a walk round the block</p>
+                </div>
+                <p class="due-time">22 hrs remaining</p>
+                <div class="btn-container">
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="new-task-popup-container" data-new-task-popup-container>
+
+            <h3 class="popup-header">New Task</h3>
+            <i class="fas fa-plus close-new-task-btn" data-close-new-task-btn></i>
+            <form class="new-task-form">
+                <p>
+                    <label class="block">Task Title</label>
+                    <input class="block" type="text" name="task-title">
+                </p>
+                <p>
+                    <label class="block">Deadline</label>
+                    <input class="block" type="datetime-local" name="deadline">
+                </p>
+                <p>
+                    <label class="block" id="text-area-label">Notes</label>
+                    <textarea class="block" name="notes" id="text-area" cols="30" rows="7"></textarea>
+                </p>
+                <fieldset>
+                    <legend class="block radio-legend">Choose priority level:</legend>
+                    <p class="top-priority-container">
+                        <input type="radio" id="top-priority" name="priority" value="1">
+                        <label  for="top-priority">Top Priority</label>
+                    </p>
+                    <p class="mid-priority-container">
+                        <input type="radio" id="mid-priority" name="priority" value="2">
+                        <label for="mid-priority">Mid Priority</label>
+                    </p>
+                    <p class="low-priority-container">
+                        <input type="radio" id="low-priority" name="priority" value="3">
+                        <label for="low-priority">Low Priority</label>
+                    </p>
+
+                </fieldset>
+                <button class="commit-task-btn">Commit Task</button>
+            </form>
+
+        </div>
+        <div class="todo-list-btn-container">
+            <button>Clear completed</button>
+            <button>Delete List</button>
+        </div>
+    </div>
+
+
+    </div>
+
+
 </body>
+
 </html>
