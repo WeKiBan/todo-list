@@ -394,7 +394,7 @@ header .current-list-header-container .sort-drop-down {
     height: 0;
     width: 100%;
     position: absolute;
-    bottom: 6rem;
+    bottom: 0;
     right: 0;
     background-color: var(--primary-bg-color);
     border-top: solid 0.1rem var(--border-color);

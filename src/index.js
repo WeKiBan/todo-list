@@ -66,10 +66,12 @@ function newTaskMenuControl(e) {
 
     if (taskPopupOpen === false) {
         newTaskPopup.style.height = "32rem";
+        newTaskPopup.style.bottom = "6rem";
         taskPopupOpen = true;
     } else {
         taskPopupOpen = false;
         newTaskPopup.style.height = "";
+        newTaskPopup.style.bottom = "0";
     }
 
 }
