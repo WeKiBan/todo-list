@@ -156,6 +156,7 @@ header .current-list-header-container .sort-drop-down {
 }
 
 .side-nav form {
+    display:flex;
     padding-top: 1rem;
 }
 
@@ -164,7 +165,7 @@ header .current-list-header-container .sort-drop-down {
     border: none;
     border-bottom: solid 1px var(--border-color);
     font-size: 1.6rem;
-    font-weight: 300;
+    font-weight: 300;  
 }
 
 .side-nav .new-list-input:hover, .side-nav .new-list-input:focus {
