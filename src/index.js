@@ -30,7 +30,7 @@ function slideMenuControl() {
         sideNav.style.width = '8rem';
         header.style.marginLeft = '8rem';
         mainDiv.style.marginLeft = '8rem';
-        allListsContainer.style.right = '8rem'
+        allListsContainer.style.right = '15rem'
         slideButton.style.transform = 'rotate(0)'
 
 
