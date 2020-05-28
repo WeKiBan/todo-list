@@ -71,7 +71,7 @@ function newTaskMenuControl(e) {
     } else {
         taskPopupOpen = false;
         newTaskPopup.style.height = "";
-        newTaskPopup.style.bottom = "0";
+        newTaskPopup.style.bottom = "";
     }
 
 }
