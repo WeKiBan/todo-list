@@ -125,7 +125,7 @@ header .current-list-header-container .sort-drop-down {
     flex-direction: column;
     position: absolute;
     width: 20rem;
-    right: 8rem;
+    right: 15rem;
     margin-top: 10rem;
     font-size: 1.6rem;
     text-transform: capitalize;
