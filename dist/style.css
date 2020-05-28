@@ -194,13 +194,13 @@ header .current-list-header-container .sort-drop-down {
 
 .main-container {
     display: flex;
-    height: 92%;
+    height: 80vh;
     justify-content: center;
     flex-wrap: wrap;
     min-width: 30rem;
     padding: 4rem;
     background-color: var(--secondary-bg-color);
-    overflow: scroll;
+    overflow: auto;
 }
 
 .main-container .new-task-btn {
@@ -398,6 +398,7 @@ header .current-list-header-container .sort-drop-down {
     background-color: var(--primary-bg-color);
     border-top: solid 0.1rem var(--border-color);
     transition: ease-in-out 0.6s;
+    overflow: hidden;
 }
 
 .new-task-popup-container .popup-header {
