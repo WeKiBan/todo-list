@@ -256,7 +256,7 @@ header .current-list-header-container .sort-drop-down {
 .todo-card-container .todo-notes {
     margin-bottom: 1.2rem;
     max-height: 10rem;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .todo-card-container .due-time {
