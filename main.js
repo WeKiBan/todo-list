@@ -86,14 +86,51 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/bottom-slide-menu.js":
+/*!**********************************!*\
+  !*** ./src/bottom-slide-menu.js ***!
+  \**********************************/
+/*! exports provided: bottomSlide */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"bottomSlide\", function() { return bottomSlide; });\n/* harmony import */ var _selectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./selectors */ \"./src/selectors.js\");\n\n\nconst bottomSlide = (() => {\n    var taskPopupOpen = false;\n\n    const newTaskMenuControl = (e) => {\n    \n        if (taskPopupOpen === false) {\n            taskPopupOpen = true;\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].newTaskPopup.style.height = \"32rem\";\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].newTaskPopup.style.bottom = \"6rem\";\n        } else {\n            taskPopupOpen = false;\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].newTaskPopup.style.height = \"\";\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].newTaskPopup.style.bottom = \"\";\n        }\n    \n    }\n\n    // opens the new task menu at bottom of the screen\n    _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].addTaskButton.addEventListener('click', function (e) {\n        e.stopPropagation();\n        newTaskMenuControl();\n    })\n    \n    // closes the new task menu when button is clicked\n    _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].closeNewTaskBtn.addEventListener('click', newTaskMenuControl)\n    \n    // closes the new task menu if user clicks outside window\n    document.addEventListener('click', function (e) {\n        if (taskPopupOpen === true && !_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].newTaskPopup.contains(e.target)) {\n            newTaskMenuControl();\n        }\n    })\n    \n})()\n\n\n\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/bottom-slide-menu.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("const sideNav = document.querySelector('[data-side-nav]')\nconst header = document.querySelector('[data-header]')\nconst mainDiv = document.querySelector('[data-main-div-wrapper]')\nconst slideButton = document.querySelector('[data-slide-button]')\nconst allListsContainer = document.querySelector('[data-all-lists-container]')\nconst addTaskButton = document.querySelector('[data-new-task-btn]')\nconst newTaskPopup = document.querySelector('[data-new-task-popup-container]')\nconst closeNewTaskBtn = document.querySelector('[data-close-new-task-btn]')\n\n\nvar taskPopupOpen = false;\nvar sideNavOpen = false;\n\n\n\n\n//controls for side slide menu where all lists are.\n// opens and closes side menu by adjust width and margin of content.\n\nslideButton.addEventListener('click', function(e){\n    e.stopPropagation();\n    slideMenuControl();\n})\n\n\nfunction slideMenuControl() {\n\n    if (sideNavOpen === true) {\n        sideNavOpen = false\n        sideNav.style.width = '8rem';\n        header.style.marginLeft = '8rem';\n        mainDiv.style.marginLeft = '8rem';\n        allListsContainer.style.right = ''\n        slideButton.style.transform = 'rotate(0)'\n\n\n    } else {\n        sideNavOpen = true;\n        sideNav.style.width = '25rem';\n        header.style.marginLeft = '25rem';\n        mainDiv.style.marginLeft = '25rem';\n        allListsContainer.style.right = '2rem'\n        slideButton.style.transform = 'rotate(180deg)'\n    }\n\n}\n\n\n\n//controls for popup new task menu\n\n// opens the new task menu at bottom of the screen\n\naddTaskButton.addEventListener('click', function(e){\n    e.stopPropagation();\n    newTaskMenuControl();\n})\n\n\n// closes the new task menu when button is clicked\n\ncloseNewTaskBtn.addEventListener('click', newTaskMenuControl)\n\n\nfunction newTaskMenuControl(e) {\n\n    if (taskPopupOpen === false) {\n        newTaskPopup.style.height = \"32rem\";\n        newTaskPopup.style.bottom = \"6rem\";\n        taskPopupOpen = true;\n    } else {\n        taskPopupOpen = false;\n        newTaskPopup.style.height = \"\";\n        newTaskPopup.style.bottom = \"\";\n    }\n\n}\n\n\ndocument.addEventListener('click', function (e) {\n    if (sideNavOpen === true && !sideNav.contains(e.target)) {\n        slideMenuControl();\n    }\n    if(taskPopupOpen === true && !newTaskPopup.contains(e.target)){\n        newTaskMenuControl();\n    }\n\n})\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _side_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./side-menu */ \"./src/side-menu.js\");\n/* harmony import */ var _bottom_slide_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bottom-slide-menu */ \"./src/bottom-slide-menu.js\");\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/selectors.js":
+/*!**************************!*\
+  !*** ./src/selectors.js ***!
+  \**************************/
+/*! exports provided: selectors */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"selectors\", function() { return selectors; });\nconst selectors = (() => {\n    const sideNav = document.querySelector('[data-side-nav]')\n    const slideButton = document.querySelector('[data-slide-button]')\n    const allListsContainer = document.querySelector('[data-all-lists-container]')\n    const header = document.querySelector('[data-header]')\n    const mainDiv = document.querySelector('[data-main-div-wrapper]')\n    const addTaskButton = document.querySelector('[data-new-task-btn]')\n    const newTaskPopup = document.querySelector('[data-new-task-popup-container]')\n    const closeNewTaskBtn = document.querySelector('[data-close-new-task-btn]')\n    return {sideNav, slideButton, header, allListsContainer, mainDiv, addTaskButton, newTaskPopup, closeNewTaskBtn}\n})();\n\n//# sourceURL=webpack:///./src/selectors.js?");
+
+/***/ }),
+
+/***/ "./src/side-menu.js":
+/*!**************************!*\
+  !*** ./src/side-menu.js ***!
+  \**************************/
+/*! exports provided: sideMenu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sideMenu\", function() { return sideMenu; });\n/* harmony import */ var _selectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./selectors */ \"./src/selectors.js\");\n\nconst sideMenu = (() => {\n    var sideNavOpen = false;\n// event listener for the slide button which opens and close the side menu\n    _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].slideButton.addEventListener('click', function(e){\n        e.stopPropagation();\n        slideMenuControl();\n    })\n    \n    document.addEventListener('click', function (e) {\n        if (sideNavOpen === true && !_selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].sideNav.contains(e.target)) {\n            slideMenuControl();\n        }\n    })\n    const slideMenuControl = () => {\n\n        if (sideNavOpen === true) {\n            sideNavOpen = false\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].sideNav.style.width = '8rem';\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].header.style.marginLeft = '8rem';\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].mainDiv.style.marginLeft = '8rem';\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].allListsContainer.style.right = ''\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].slideButton.style.transform = 'rotate(0)'\n    \n    \n        } else {\n            sideNavOpen = true;\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].sideNav.style.width = '25rem';\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].header.style.marginLeft = '25rem';\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].mainDiv.style.marginLeft = '25rem';\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].allListsContainer.style.right = '2rem'\n            _selectors__WEBPACK_IMPORTED_MODULE_0__[\"selectors\"].slideButton.style.transform = 'rotate(180deg)'\n        }\n    \n    }\n  })();\n\n\n//# sourceURL=webpack:///./src/side-menu.js?");
 
 /***/ })
 
