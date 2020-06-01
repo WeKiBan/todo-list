@@ -16,7 +16,7 @@
     <header data-header>
         <h1 class="header">taski</h1>
         <div class="current-list-header-container">
-            <h2 class="current-list-name">Wes</h2>
+            <h2 class="current-list-name" data-current-list-name>Wes</h2>
             <fieldset class="sort-fieldset">
                 <label>Sort by:</label>
                 <select class="sort-drop-down">
@@ -33,13 +33,10 @@
         <div class="lists-container" data-all-lists-container>
             <h2>My Lists</h2>
             <ul class="all-lists" data-all-lists>
-                <li class="active-list">wes</li>
-                <li>veronica list</li>
-                <li>this list</li>
             </ul>
-            <form action="">
-                <input class="new-list-input" type="text">
-                <i class="fas fa-plus new-list-btn"></i>
+            <form data-new-list-form>
+                <input class="new-list-input" type="text" data-new-list-input placeholder="New list name" aria-label="new list name">
+               <button class="new-list-btn" type="submit"><i class="fas fa-plus new-list-btn"></i></button> 
             </form>
         </div>
     </div>
@@ -163,7 +160,7 @@
     </div>
     <div class="todo-list-btn-container">
         <button>Clear completed</button>
-        <button>Delete List</button>
+        <button class="delete-current-list-btn" data-delete-list-btn>Delete List</button>
     </div>
 
 
