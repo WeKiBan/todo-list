@@ -35,113 +35,40 @@
             <ul class="all-lists" data-all-lists>
             </ul>
             <form data-new-list-form>
-                <input class="new-list-input" type="text" data-new-list-input placeholder="New list name" aria-label="new list name">
-               <button class="new-list-btn" type="submit"><i class="fas fa-plus new-list-btn"></i></button> 
+                <input class="new-list-input" type="text" data-new-list-input placeholder="New list name"
+                    aria-label="new list name">
+                <button class="new-list-btn" type="submit"><i class="fas fa-plus new-list-btn"></i></button>
             </form>
         </div>
     </div>
 
 
     <div class="main-container-wrapper" data-main-div-wrapper>
-        <div class="main-container">
-            <i class="fas fa-plus new-task-btn" data-new-task-btn></i>
-
-            
-            <div class="todo-card-container">
-                <h3 class="todo-title">Take dog for walk</h3>
-                <div class="todo-items-container">
-                    <p class="todo-notes">Must take dog for a walk round the block</p>
-                </div>
-                <p class="due-time">22 hrs remaining</p>
-                <div class="btn-container">
-                    <label class="checkbox-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
-                </div>
-            </div>
-            <div class="todo-card-container">
-                <h3 class="todo-title">Take dog for walk</h3>
-                <div class="todo-items-container">
-                    <p class="todo-notes">Must take dog for a walk round the block</p>
-                </div>
-                <p class="due-time">22 hrs remaining</p>
-                <div class="btn-container">
-                    <label class="checkbox-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
-                </div>
-            </div>
-            <div class="todo-card-container">
-                <h3 class="todo-title">Take dog for walk</h3>
-                <div class="todo-items-container">
-                    <p class="todo-notes">Must take dog for a walk round the block</p>
-                </div>
-                <p class="due-time">22 hrs remaining</p>
-                <div class="btn-container">
-                    <label class="checkbox-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
-                </div>
-            </div>
-            <div class="todo-card-container">
-                <h3 class="todo-title">Take dog for walk</h3>
-                <div class="todo-items-container">
-                    <p class="todo-notes">Must take dog for a walk round the block</p>
-                </div>
-                <p class="due-time">22 hrs remaining</p>
-                <div class="btn-container">
-                    <label class="checkbox-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
-                </div>
-            </div>
-
-            <div class="todo-card-container">
-                <h3 class="todo-title">Take dog for walk</h3>
-                <div class="todo-items-container">
-                    <p class="todo-notes">Must take dog for a walk round the block</p>
-                </div>
-                <p class="due-time">22 hrs remaining</p>
-                <div class="btn-container">
-                    <label class="checkbox-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
-                </div>
-            </div>
-           
+        <i class="fas fa-plus new-task-btn" data-new-task-btn></i>
+        <div class="main-container" data-main-container>
         </div>
         <div class="new-task-popup-container" data-new-task-popup-container>
 
             <h3 class="popup-header">New Task</h3>
             <i class="fas fa-plus close-new-task-btn" data-close-new-task-btn></i>
-            <form class="new-task-form">
+            <form class="new-task-form" data-new-task-form>
                 <p>
                     <label class="block">Task Title</label>
-                    <input class="block" type="text" name="task-title">
+                    <input class="block" type="text" name="task-title" data-task-name-input>
                 </p>
                 <p>
                     <label class="block">Deadline</label>
-                    <input class="block" type="datetime-local" name="deadline">
+                    <input class="block" type="datetime-local" name="deadline" data-deadline-input>
                 </p>
                 <p>
                     <label class="block" id="text-area-label">Notes</label>
-                    <textarea class="block" name="notes" id="text-area" cols="30" rows="7"></textarea>
+                    <textarea class="block" name="notes" id="text-area" cols="30" rows="7" data-notes-input></textarea>
                 </p>
                 <fieldset>
                     <legend class="block radio-legend">Choose priority level:</legend>
                     <p class="top-priority-container">
                         <input type="radio" id="top-priority" name="priority" value="1">
-                        <label  for="top-priority">Top Priority</label>
+                        <label for="top-priority">Top Priority</label>
                     </p>
                     <p class="mid-priority-container">
                         <input type="radio" id="mid-priority" name="priority" value="2">
@@ -153,7 +80,7 @@
                     </p>
 
                 </fieldset>
-                <button class="commit-task-btn">Commit Task</button>
+                <button type="submit" class="commit-task-btn">Commit Task</button>
             </form>
 
         </div>
@@ -165,7 +92,22 @@
 
 
     </div>
-
+    <template id="task-template">
+        <div class="todo-card-container">
+            <h3 class="todo-title"></h3>
+            <div class="todo-items-container">
+                <p class="todo-notes"></p>
+            </div>
+            <p class="due-time"></p>
+            <div class="btn-container">
+                <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+            </div>
+        </div>
+    </template>
 
 </body>
 

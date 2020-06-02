@@ -3,6 +3,9 @@
 const allLists = document.querySelector('[data-all-lists]');
 const deleteListBtn = document.querySelector('[data-delete-list-btn]')
 const currentListName = document.querySelector('[data-current-list-name]');
+const mainContainer = document.querySelector('[data-main-container]')
+const taskTemplate = document.querySelector('#task-template');
+
 
 // local storage
 const LOCAL_STORAGE_LIST_KEY = "task.lists";
@@ -25,7 +28,7 @@ function clearElement(element) {
     }
 }
 
-
+// render the list to the page
 function render() {
     clearElement(allLists);
     renderLists();
@@ -34,7 +37,33 @@ function render() {
         currentListName.innerText = "";
     } else {
         currentListName.innerText = selectedList.name;
+        renderTaskCount(selectedList);
+        clearElement(mainContainer);
+        renderTasks(selectedList);
     }
+}
+
+
+
+function renderTasks(selectedList){
+    selectedList.tasks.forEach(task => {
+        const taskElement = document.importNode(taskTemplate.content, true);
+        const checkbox = taskElement.querySelector('input');
+        checkbox.id = task.id;
+        checkbox.checked = task.complete;
+        const taskName = taskElement.querySelector('.todo-title');
+        taskName.innerText = task.name;
+        const taskNotes = taskElement.querySelector('.todo-notes');
+        taskNotes.innerText = task.notes;
+        const deadline = taskElement.querySelector('.due-time');
+        deadline.innerText = task.deadline;
+        mainContainer.appendChild(taskElement)
+    });
+}
+
+function renderTaskCount(selectedList){
+    const incompleteTasks = selectedList.tasks.filter(task => !task.complete).length;
+    const taskString = incompleteTasks === 1 ? "task" : "tasks";
 }
 
 
