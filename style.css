@@ -335,7 +335,8 @@ header .current-list-name {
     position: absolute;
     bottom: 1rem;
     left: 2rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    opacity: 0.5;
 }
 
 /* styling for checkboxes and edit btn */
