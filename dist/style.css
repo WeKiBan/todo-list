@@ -516,6 +516,7 @@ header .current-list-name {
 .new-task-form .block {
     display: block;
     width: 20rem;
+    margin: 0 1rem;
 }
 
 .new-task-form textarea {
@@ -529,6 +530,7 @@ header .current-list-name {
 .new-task-form fieldset p {
     padding-bottom: 0.5rem;
     text-align: left;
+    margin: 0 1rem;
 }
 
 .new-task-form .low-priority-container {
