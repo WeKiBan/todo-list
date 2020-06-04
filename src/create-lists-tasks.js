@@ -50,7 +50,6 @@ newTaskForm.addEventListener('submit', e => {
         }
     });
     if (name == null || name === "") return;
-    if (time == null || time === "") return;
     if (date == null || date === "") return;
     const task = createTask(name, date, time, notes, priority);
     const selectedList = lists.find(list => list.id === selectedListId);
