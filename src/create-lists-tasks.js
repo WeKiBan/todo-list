@@ -2,6 +2,7 @@ import { save, render, lists, setSelectedListId, selectedListId } from './save-a
 import { parseISO } from 'date-fns';
 import { newTaskMenuControl } from './bottom-slide-menu'
 import { sortTasks } from './save-and-render'
+import {slideMenuControl} from './side-menu'
 
 
 
@@ -32,6 +33,7 @@ newListForm.addEventListener('submit', e => {
     newListInput.value = null;
     lists.push(list);
     setSelectedListId(list.id);
+    slideMenuControl();
     save();
     render();
 })

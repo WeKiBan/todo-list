@@ -9,7 +9,7 @@ const mainDiv = document.querySelector('[data-main-div-wrapper]')
 var sideNavOpen = false;
 
 
-const slideMenuControl = () => {
+export const slideMenuControl = () => {
 
     if (sideNavOpen === true) {
         sideNavOpen = false
