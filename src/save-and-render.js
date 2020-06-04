@@ -83,6 +83,12 @@ function renderTasks(selectedList) {
         deadline.innerText = calcDeadline(task.date);
         const dateCreated = taskElement.querySelector('[data-date-created]');
         dateCreated.innerText = format(new Date(task.date), 'dd/MM'); 
+        const completeLabel = taskElement.querySelector('[data-complete-label]');
+        if(checkbox.checked){
+            completeLabel.innerText = "mark as incomplete:"
+        } else {
+            completeLabel.innerText = "mark as complete:"
+        }
         taskElement.querySelector('[data-checkbox]').addEventListener('click', markAsComplete)
         taskElement.querySelector('[data-delete-task]').addEventListener('click', deleteTask)
         mainContainer.appendChild(taskElement)
