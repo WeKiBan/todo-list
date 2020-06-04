@@ -7,6 +7,7 @@
     --mid-orange: rgba(252, 193, 74, 0.644);
     --top-red: rgba(226, 87, 80, 0.664);
     --low-green: rgba(73, 215, 135, 0.466);
+    --grey: #0000001f;
 }
 
 html {
@@ -301,7 +302,6 @@ header .current-list-name {
 }
 
 .todo-card-container .todo-title {
-    background-color: var(--primary-bg-color);
     font-size: 1.8rem;
     text-align: center;
     width: 90%;
@@ -324,7 +324,7 @@ header .current-list-name {
     text-align: center;
 }
 
-.todo-card-container .date-created{
+.todo-card-container .due-date{
     font-size: 1.5rem;
     opacity:0.5;
     padding: 0;
