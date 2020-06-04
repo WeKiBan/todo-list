@@ -51,10 +51,32 @@ header .header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left:1rem;
+    padding-left: 1rem;
     height: 8rem;
     font-size: 3.5rem;
     border-bottom: solid var(--border-color) 0.1rem;
+}
+
+.header .yellow {
+    color: var(--mid-orange);
+    font-size: 2.5rem;
+    padding: 0.3rem;
+    margin-bottom: -0.6rem;
+}
+
+.header .green {
+    color: var(--low-green);
+    font-size: 2.5rem;
+    padding: 0.3rem;
+    margin-bottom: -0.6rem;
+}
+
+.header .red {
+    color: var(--top-red);
+    font-size: 2.5rem;
+    padding: 0.3rem;
+    padding-left:1rem;
+    margin-bottom: -0.6rem;
 }
 
 header .current-list-header-container {
@@ -86,7 +108,7 @@ header .current-list-header-container .sort-drop-down {
     color: #666;
 }
 
-header .current-list-name{
+header .current-list-name {
     text-transform: capitalize;
 }
 
@@ -161,7 +183,7 @@ header .current-list-name{
 }
 
 .side-nav form {
-    display:flex;
+    display: flex;
     padding-top: 1rem;
 }
 
@@ -170,8 +192,8 @@ header .current-list-name{
     border: none;
     border-bottom: solid 1px var(--border-color);
     font-size: 1.6rem;
-    font-weight: 300;  
-    width:75%;
+    font-weight: 300;
+    width: 75%;
     opacity: 0.3;
 }
 
@@ -182,7 +204,7 @@ header .current-list-name{
 .side-nav .new-list-btn {
     transition: 0.5s;
     cursor: pointer;
-    border:none;
+    border: none;
 }
 
 .side-nav .new-list-btn:hover {
@@ -226,25 +248,51 @@ header .current-list-name{
     opacity: 0.7;
 }
 
+.main-container .empty-message-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-weight: 200;
+    opacity:0.4;
+}
+.main-container .empty-message-container img{
+    width: 10rem;
+    margin:0 auto;
+    opacity: 0.3;
+}
+
 /* todo card styling */
 
 .todo-card-container {
     display: flex;
     position: relative;
     flex-direction: column;
+    align-items: center;
     min-width: 25rem;
     width: 25rem;
     height: 30rem;
     background-color: var(--primary-bg-color);
     border-radius: 0.3rem;
     border: solid 0.1rem var(--border-color);
-    border-bottom: solid 0.5rem var(--mid-orange);
     overflow: auto;
     padding: 1rem;
     margin: 3rem;
     box-shadow: 7px 8px 19px -6px rgba(0, 0, 0, 0.322);
     transition: ease-in-out 0.3s;
     cursor: pointer;
+}
+
+.top-priority {
+    border-bottom: solid 0.8rem var(--top-red);
+}
+
+.mid-priority {
+    border-bottom: solid 0.8rem var(--mid-orange);
+}
+
+.low-priority {
+    border-bottom: solid 0.8rem var(--low-green);
 }
 
 .todo-card-container:hover {
@@ -274,6 +322,7 @@ header .current-list-name{
     position: absolute;
     bottom: 1rem;
     left: 1rem;
+    max-width: 16rem;
 }
 
 /* styling for checkboxes and edit btn */
@@ -282,8 +331,8 @@ header .current-list-name{
     display: block;
     position: relative;
     margin-right: 0.5rem;
-    width:2rem;
-    height:2rem;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
     font-size: 2.2rem;
     -webkit-user-select: none;
@@ -348,19 +397,18 @@ header .current-list-name{
     right: 0.5rem;
 }
 
-
-.todo-card-container .edit-btn{
-    font-size:1.7rem;
-    margin-bottom:-0.3rem;
+.todo-card-container .delete-btn {
+    font-size: 1.7rem;
+    margin-bottom: -0.3rem;
     background-color: transparent;
-    border:none;
+    border: none;
     cursor: pointer;
-    opacity:0.4;
+    opacity: 0.4;
     transition: ease-in-out 0.2s;
 }
 
-.todo-card-container .edit-btn:hover{
-    opacity:0.7;
+.todo-card-container .delete-btn:hover {
+    opacity: 0.7;
     transform: scale(1.1);
 }
 
@@ -433,12 +481,16 @@ header .current-list-name{
 }
 
 .new-task-popup-container .new-task-form {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2rem;
+    width: 80%;
+    max-width: 60rem;
+    height: 60%;
+    flex-wrap: wrap;
     position: relative;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-    width: 100%;
-    max-width: 80rem;
     justify-items: center;
     text-align: left;
     padding: 1rem;
@@ -464,19 +516,25 @@ header .current-list-name{
 
 .new-task-form .low-priority-container {
     border-bottom: 0.2rem solid var(--low-green);
+    width:20rem;
 }
 
 .new-task-form .mid-priority-container {
     border-bottom: 0.2rem solid var(--mid-orange);
+    width:20rem;
 }
 
 .new-task-form .top-priority-container {
     border-bottom: 0.2rem solid var(--top-red);
+    width:20rem;
 }
 
 .new-task-popup-container .commit-task-btn {
     position: absolute;
+    margin: auto;
     width: 10rem;
+    left: 50%;
+    margin-left: -5rem;
     height: 3rem;
     bottom: -4rem;
     background-color: none;
