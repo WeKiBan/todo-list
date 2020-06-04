@@ -1,6 +1,7 @@
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNowStrict } from 'date-fns'
 import { compareAsc } from 'date-fns'
 import { parseISO } from 'date-fns'
+import { format } from 'date-fns'
 
 // query selectors
 
@@ -48,6 +49,7 @@ function render() {
         clearElement(mainContainer);
         renderEmptyMessage();
     } else if (selectedList.tasks.length === 0) {
+        currentListName.innerText = selectedList.name;
         renderEmptyMessage();
     } else {
         currentListName.innerText = selectedList.name;
@@ -80,7 +82,7 @@ function renderTasks(selectedList) {
         const deadline = taskElement.querySelector('.due-time');
         deadline.innerText = calcDeadline(task.date);
         const dateCreated = taskElement.querySelector('[data-date-created]');
-        dateCreated.innerText = task.dateCreated
+        dateCreated.innerText = format(new Date(task.date), 'dd/MM'); 
         taskElement.querySelector('[data-checkbox]').addEventListener('click', markAsComplete)
         taskElement.querySelector('[data-delete-task]').addEventListener('click', deleteTask)
         mainContainer.appendChild(taskElement)
@@ -159,6 +161,7 @@ function renderLists() {
         if (list.id === selectedListId) listElement.classList.add('active-list')
         listElement.addEventListener('click', function (e) {
             selectedListId = e.target.dataset.listId;
+            sortTasks();
             save();
             render();
         })
@@ -175,7 +178,7 @@ function setSelectedListId(id) {
 
 // function to calculate remaining time till deadline for task
 function calcDeadline(date) {
-    return formatDistanceToNow(new Date(date)) + " remaining";
+    return formatDistanceToNowStrict(new Date(date)) + " to go";
 }
 
 

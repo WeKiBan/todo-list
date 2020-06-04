@@ -253,12 +253,13 @@ header .current-list-name {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    font-weight: 200;
+    font-weight: 300;
     opacity:0.4;
 }
 .main-container .empty-message-container img{
     width: 10rem;
     margin:0 auto;
+    margin-top: -5rem;
     opacity: 0.3;
 }
 
@@ -304,7 +305,7 @@ header .current-list-name {
     font-size: 1.8rem;
     text-align: center;
     width: 90%;
-    padding: 1.6rem 5%;
+    padding: 1.2rem 0 0.5rem 0;
     text-transform: capitalize;
 }
 
@@ -319,10 +320,22 @@ header .current-list-name {
 }
 
 .todo-card-container .due-time {
+    opacity: 0.6;
+    text-align: center;
+}
+
+.todo-card-container .date-created{
+    font-size: 1.5rem;
+    opacity:0.5;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-card-container .complete-label{
     position: absolute;
     bottom: 1rem;
-    left: 1rem;
-    max-width: 16rem;
+    left: 2rem;
+    font-size: 1.6rem;
 }
 
 /* styling for checkboxes and edit btn */
@@ -331,8 +344,9 @@ header .current-list-name {
     display: block;
     position: relative;
     margin-right: 0.5rem;
-    width: 2rem;
-    height: 2rem;
+    margin-bottom: -0.29rem;
+    width: 1.9rem;
+    height: 1.9rem;
     cursor: pointer;
     font-size: 2.2rem;
     -webkit-user-select: none;
@@ -377,9 +391,9 @@ header .current-list-name {
 }
 
 .checkbox-container .checkmark:after {
-    left: 0.55rem;
+    left: 0.6rem;
     top: 0.1rem;
-    width: 0.5rem;
+    width: 0.4rem;
     height: 1.2rem;
     border: solid white;
     border-width: 0 3px 3px 0;
@@ -398,7 +412,7 @@ header .current-list-name {
 }
 
 .todo-card-container .delete-btn {
-    font-size: 1.7rem;
+    font-size: 2.1rem;
     margin-bottom: -0.3rem;
     background-color: transparent;
     border: none;
@@ -447,10 +461,10 @@ header .current-list-name {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 0;
+    height: 40rem;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: -35rem;
     right: 0;
     background-color: var(--primary-bg-color);
     border-top: solid 0.1rem var(--border-color);
@@ -482,11 +496,13 @@ header .current-list-name {
 
 .new-task-popup-container .new-task-form {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     margin-top: 2rem;
     width: 80%;
+    min-height: 20rem;
     max-width: 60rem;
     height: 60%;
     flex-wrap: wrap;

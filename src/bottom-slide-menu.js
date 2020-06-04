@@ -13,12 +13,10 @@ if(selectedListId === "null" || selectedListId === null ){
 }
     if (taskPopupOpen === false) {
         taskPopupOpen = true;
-        newTaskPopup.style.height = "40rem";
         newTaskPopup.style.bottom = "6rem";
     } else {
         taskPopupOpen = false;
-        newTaskPopup.style.height = "";
-        newTaskPopup.style.bottom = "";
+        newTaskPopup.style.bottom = "-35rem";
     }
 
 }
