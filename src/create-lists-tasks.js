@@ -1,14 +1,19 @@
 import { save, render, lists, setSelectedListId, selectedListId } from './save-and-render';
+import { parseISO } from 'date-fns';
+import { newTaskMenuControl } from './bottom-slide-menu'
+import { sortTasks } from './save-and-render'
+
+
+
 
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
 const newTaskForm = document.querySelector('[data-new-task-form]');
 const taskNameInput = document.querySelector('[data-task-name-input]');
-const deadlineInput = document.querySelector('[data-deadline-input]');
+const dateInput = document.querySelector('[data-date-input]');
+const timeInput = document.querySelector('[data-time-input]');
 const notesInput = document.querySelector('[data-notes-input]');
 const priorityRadios = document.getElementsByName('priority');
-
-
 
 
 function createList(name) {
@@ -32,28 +37,49 @@ newListForm.addEventListener('submit', e => {
 })
 
 newTaskForm.addEventListener('submit', e => {
-    console.log('yes');
-    var taskName = taskNameInput.value;
-    var deadline = deadlineInput.value;
+    e.preventDefault();
+    var name = taskNameInput.value;
+    var date = dateInput.value;
+    var time = timeInput.value;
     var notes = notesInput.value;
-    var priority = priorityRadios.forEach(radio => {
+    var priority;
+
+    priorityRadios.forEach(radio => {
         if (radio.checked) {
-            return radio.value;
+            priority = radio.value;
         }
     });
-    if (taskName == null || taskName === "") return;
-    if (deadline == null || deadline === "") return;
-    if (notes == null || notes === "") return;
-    const task = createTask(taskName, deadline, notes, priority);
+    if (name == null || name === "") return;
+    if (time == null || time === "") return;
+    if (date == null || date === "") return;
+    const task = createTask(name, date, time, notes, priority);
     const selectedList = lists.find(list => list.id === selectedListId);
     selectedList.tasks.push(task)
+    newTaskForm.reset()
+    newTaskMenuControl();
+    sortTasks();
     save();
     render();
 })
 
-function createTask(taskName, deadline, notes, priority) {
-    return { id: createUniqueId(), name: taskName, deadline, notes, priority}
+
+function createTask(name, taskDate, time, notes, priority) {
+    var today = new Date();
+    var currentDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateCreated = currentDate + ' ' + time;
+
+
+    var date = taskDate + ' ' + time;
+
+
+    return { id: createUniqueId(), name, date, notes, priority, complete: false, dateCreated }
+
 }
+
+
+
+
 
 
 
