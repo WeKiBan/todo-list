@@ -11,6 +11,7 @@ const currentListName = document.querySelector('[data-current-list-name]');
 const mainContainer = document.querySelector('[data-main-container]')
 const taskTemplate = document.querySelector('#task-template');
 const sortValueInput = document.querySelector('[data-sort-drop-down]')
+const emptyMessageTemplate = document.querySelector('#empty-list-template');
 
 
 
@@ -40,9 +41,14 @@ function render() {
     clearElement(allLists);
     renderLists();
     const selectedList = lists.find(list => list.id === selectedListId)
+
+
     if (selectedListId === null || selectedListId === 'null') {
         currentListName.innerText = "";
         clearElement(mainContainer);
+        renderEmptyMessage();
+    } else if (selectedList.tasks.length === 0) {
+        renderEmptyMessage();
     } else {
         currentListName.innerText = selectedList.name;
         clearElement(mainContainer);
@@ -111,18 +117,25 @@ function clearCompleteTasks() {
     render();
 }
 
+
+// event listener to clear complete tasks
+
+clearCompleteBtn.addEventListener('click', clearCompleteTasks);
+
+
+
 // function to sort the tasks into order depending on selection
 function sortTasks() {
     var selectedList = lists.find(list => list.id === selectedListId);
-    
+
     const sortValue = sortValueInput.value;
-    
+
     if (sortValue === 'priority') {
         selectedList.tasks = selectedList.tasks.sort((a, b) => Number(a.priority) - Number(b.priority))
-    } else if(sortValue === 'date created'){
-        selectedList.tasks = selectedList.tasks.sort((a, b) =>  new Date(a.dateCreated) - new Date(b.dateCreated))
-    } else if(sortValue === 'a-z'){
-        selectedList.tasks = selectedList.tasks.sort((a,b) => (a.name > b.name) ? 1 : -1)
+    } else if (sortValue === 'date created') {
+        selectedList.tasks = selectedList.tasks.sort((a, b) => new Date(a.dateCreated) - new Date(b.dateCreated))
+    } else if (sortValue === 'a-z') {
+        selectedList.tasks = selectedList.tasks.sort((a, b) => (a.name > b.name) ? 1 : -1)
     } else {
         selectedList.tasks = selectedList.tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
     }
@@ -130,9 +143,10 @@ function sortTasks() {
     save();
     render();
 
-   
-
 }
+
+// event listener for sort
+sortValueInput.addEventListener('change', sortTasks);
 
 
 //function to render the lists in side menu
@@ -161,13 +175,8 @@ function setSelectedListId(id) {
 
 // function to calculate remaining time till deadline for task
 function calcDeadline(date) {
-
     return formatDistanceToNow(new Date(date)) + " remaining";
 }
-
-
-
-//event listeners
 
 
 // event listener for delete list button
@@ -182,15 +191,20 @@ deleteListBtn.addEventListener('click', function () {
     render();
 })
 
-// event listener to clear complete tasks
+// to render a message to the page if there are no tasks or no lists
 
-clearCompleteBtn.addEventListener('click', clearCompleteTasks);
-
-
-// event listener for sort
-sortValueInput.addEventListener('change', sortTasks);
-
-
+function renderEmptyMessage() {
+    const emptyMessageElement = document.importNode(emptyMessageTemplate.content, true)
+    const emptyMessageDiv = emptyMessageElement.querySelector('[data-empty-message-container]')
+    const errorMessageParagraph = emptyMessageElement.querySelector('[data-message-paragraph');
+    if(selectedListId === null || selectedListId === 'null'){
+        errorMessageParagraph.innerText = 'No lists. Create a new list in the side menu to get started.'
+    } else {
+        errorMessageParagraph.innerText = 'No Tasks. Press the + in the top left corner to get started.'
+    }
+    clearElement(mainContainer);
+    mainContainer.appendChild(emptyMessageDiv);
+}
 
 
 
