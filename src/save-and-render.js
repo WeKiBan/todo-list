@@ -79,15 +79,17 @@ function renderTasks(selectedList) {
         taskName.innerText = task.name;
         const taskNotes = taskElement.querySelector('.todo-notes');
         taskNotes.innerText = task.notes;
-        const deadline = taskElement.querySelector('.due-time');
-        deadline.innerText = calcDeadline(task.date);
-        const dateCreated = taskElement.querySelector('[data-date-created]');
-        dateCreated.innerText = format(new Date(task.date), 'dd/MM'); 
+        const dueDate = taskElement.querySelector('[data-due-date]');
+        dueDate.innerText = format(new Date(task.date), 'dd/MM') + " - " + calcDeadline(task.date); 
         const completeLabel = taskElement.querySelector('[data-complete-label]');
         if(checkbox.checked){
             completeLabel.innerText = "mark as incomplete:"
         } else {
             completeLabel.innerText = "mark as complete:"
+        }
+
+        if(checkbox.checked){
+            todoContainer.style.backgroundColor = "#0000001f"
         }
         taskElement.querySelector('[data-checkbox]').addEventListener('click', markAsComplete)
         taskElement.querySelector('[data-delete-task]').addEventListener('click', deleteTask)
