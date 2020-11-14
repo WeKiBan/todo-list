@@ -1,21 +1,27 @@
 {
-  "name": "to-do-reworked",
+  "name": "todo-list",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "webpack build",
+    "watch": "webpack watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeKiBan/todo-list.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "bugs": {
+    "url": "https://github.com/WeKiBan/todo-list/issues"
+  },
+  "homepage": "https://github.com/WeKiBan/todo-list#readme",
+  "dependencies": {
+    "date-fns": "^2.16.1",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0"
-  },
-  "dependencies": {
-    "date-fns": "^2.16.1"
   }
 }
